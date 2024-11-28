@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../views/screens/home_screen.dart';
+import './home_screen.dart';
+import './doctors/doctors_screen.dart';
+import './appointments/appointments_screen.dart';
+import './profile/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,9 +17,9 @@ class _MainScreenState extends State<MainScreen> {
   int currentScreenIndex = 0;
   final screens = [
     const HomeScreen(),
-    const HomeScreen(),
-    const HomeScreen(),
-    const HomeScreen(),
+    const DoctorsScreen(),
+    const AppointmentsScreen(),
+    const ProfileScreen(),
   ];
 
   @override
