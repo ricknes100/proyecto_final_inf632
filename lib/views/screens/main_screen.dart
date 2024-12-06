@@ -25,6 +25,21 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Consultorio'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications_outlined),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(right: 16.0),
+            child: CircleAvatar(
+              child: Text('JD'),
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(child: screens[currentScreenIndex]),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (index) {

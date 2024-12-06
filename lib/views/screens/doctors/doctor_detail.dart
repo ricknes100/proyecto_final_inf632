@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_final_inf632/views/screens/appointments/registered_appointment_screen.dart';
 
 class DoctorDetail extends StatelessWidget {
   const DoctorDetail({super.key});
@@ -59,11 +60,12 @@ class DoctorDetail extends StatelessWidget {
             const AppointmentTime(),
             Expanded(child: Container()),
             FilledButton(
-              onPressed: () {},
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisteredAppointmentScreen())),
               style: FilledButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0))
               ),
-              child: const Text('Siguiente'),
+              child: const Text('Reservar una cita'),
             )
           ],
         ),
@@ -78,10 +80,20 @@ class AppointmentTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('LUNES, 2 DIC'),
         SizedBox(height: 4.0),
-        Chip(label: Text('9:00 AM'))
+        Wrap(
+          spacing: 4.0,
+          children: [
+            Chip(label: Text('09:00 AM'), padding: EdgeInsets.all(4.0)),
+            Chip(label: Text('11:00 AM'), padding: EdgeInsets.all(4.0)),
+            Chip(label: Text('14:00 PM'), padding: EdgeInsets.all(4.0)),
+            Chip(label: Text('16:00 PM'), padding: EdgeInsets.all(4.0)),
+            Chip(label: Text('18:00 PM'), padding: EdgeInsets.all(4.0))
+          ],
+        )
       ],
     );
   }

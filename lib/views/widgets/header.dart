@@ -10,9 +10,10 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final size = MediaQuery.of(context).size;
+    final colors = Theme.of(context).colorScheme;
 
     return SizedBox(
-      height: size.height * 0.15,
+      height: size.height * 0.10,
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -20,7 +21,7 @@ class Header extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600, color: colors.primary),
           ),
           Text(
             description,
