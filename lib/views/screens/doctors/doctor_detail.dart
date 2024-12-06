@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_final_inf632/views/screens/appointments/registered_appointment_screen.dart';
+import 'package:weekly_calendar/weekly_calendar.dart';
 
 class DoctorDetail extends StatelessWidget {
   const DoctorDetail({super.key});
@@ -56,9 +57,27 @@ class DoctorDetail extends StatelessWidget {
               'Reserva una cita',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600),
             ),
-            const SizedBox(height: 8.0),
+            const Expanded(
+              child: WeeklyCalendar(
+                calendarStyle: CalendarStyle(
+                  locale: 'es',
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(14)),
+                  ),
+                  isShowHeaderDateText: false,
+                  footerDateTextColor: Colors.black,
+                  selectedCircleColor: Colors.indigo,
+                  todaySelectedCircleColor: Colors.indigo,
+                  todayDayTextColor: Colors.indigo
+                ),
+              ),
+            ),
+            const Text(
+              'Horarios disponibles',
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
+            ),
             const AppointmentTime(),
-            Expanded(child: Container()),
+            const SizedBox(height: 8.0),
             FilledButton(
               onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisteredAppointmentScreen())),
               style: FilledButton.styleFrom(
@@ -82,8 +101,8 @@ class AppointmentTime extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('LUNES, 2 DIC'),
-        SizedBox(height: 4.0),
+        // Text('LUNES, 2 DIC'),
+        // SizedBox(height: 4.0),
         Wrap(
           spacing: 4.0,
           children: [
@@ -91,7 +110,6 @@ class AppointmentTime extends StatelessWidget {
             Chip(label: Text('11:00 AM'), padding: EdgeInsets.all(4.0)),
             Chip(label: Text('14:00 PM'), padding: EdgeInsets.all(4.0)),
             Chip(label: Text('16:00 PM'), padding: EdgeInsets.all(4.0)),
-            Chip(label: Text('18:00 PM'), padding: EdgeInsets.all(4.0))
           ],
         )
       ],

@@ -20,7 +20,7 @@ class DoctorNotifier extends ChangeNotifier {
     try {
       _isLoading = true;
       notifyListeners();
-      await _doctorController.loadNotas();
+      await _doctorController.loadDoctors();
     } catch (_) {
       _errorMessage = "No se pudieron cargar los medicos";
     } finally {

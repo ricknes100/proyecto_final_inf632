@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'doctors/doctor_detail.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -129,22 +131,25 @@ class DoctorCard extends StatelessWidget {
 
     final size = MediaQuery.of(context).size;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(8.0),
-          child: Image.network(
-            photoUrl,
-            height: size.height * 0.15,
-            width: double.infinity,
-            fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const DoctorDetail())),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: Image.network(
+              photoUrl,
+              height: size.height * 0.15,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        const SizedBox(height: 4.0),
-        Text(doctorName, maxLines:2),
-        Text(speciality, style: const TextStyle(fontWeight: FontWeight.w500)),
-      ],
+          const SizedBox(height: 4.0),
+          Text(doctorName, maxLines:2),
+          Text(speciality, style: const TextStyle(fontWeight: FontWeight.w500)),
+        ],
+      ),
     );
   }
 }

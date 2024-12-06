@@ -10,7 +10,7 @@ class DoctorController {
 
   List<Doctor> get doctors => List.unmodifiable(_doctors);
 
-  Future<void> loadNotas() async {
+  Future<void> loadDoctors() async {
     try {
       _doctors.clear();
       final loadedDoctors = await _doctorService.getDoctors();
